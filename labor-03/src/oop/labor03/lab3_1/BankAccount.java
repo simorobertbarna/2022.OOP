@@ -1,7 +1,6 @@
-package oop.labor02.bank;
+package oop.labor03.lab3_1;
 
 public class BankAccount {
-
     //Attributes
     private String accountNumber;
     private double balance;
@@ -15,7 +14,6 @@ public class BankAccount {
     public String getAccountNumber(){
         return accountNumber;
     }
-
 
     public double getBalance(){
         return balance;

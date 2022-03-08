@@ -5,10 +5,10 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args){
         int error=0, year, month, day;
-        MyDate date[] = new MyDate[1000];
+        MyDate date[] = new MyDate[100];
         Random rand = new Random();
-        for (int i = 0; i < 1000 ; i++) {
-            year =  0 + rand.nextInt(2022-0);
+        for (int i = 0; i < date.length ; i++) {
+            year = rand.nextInt(2022);
             month = 1 + rand.nextInt(13-1);
             day = 1 + rand.nextInt(28);
             date[i] = new MyDate(year, month, day);
