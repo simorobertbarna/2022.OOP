@@ -17,8 +17,8 @@ public class Main {
         //System.out.println(customer2.ToString());
         customer2.closeAccount();
         //System.out.println(customer2.ToString());
-        customer1.SetAccount(customer2.getAccount());
-        System.out.println(customer1.toString());
+        customer2.setLastName(customer1.getLastName());
+        System.out.println(customer2.toString());
 
 
         
