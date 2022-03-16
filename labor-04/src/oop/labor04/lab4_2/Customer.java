@@ -1,62 +1,69 @@
 package oop.labor04.lab4_2;
 
-
 import java.util.ArrayList;
 
 public class Customer {
-    private String firstName;
+
+    private final String firstName;
     private String lastName;
-    private double balance;
-    private BankAccount account;
-    int accountNumber;
+    private ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
-    private ArrayList<BankAccount> accounts = new ArrayList<>();
 
-    public Customer(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Customer(String fName, String lName){
+        this.firstName = fName;
+        this.lastName = lName;
     }
 
-    public void addAccount(BankAccount account) {
+    public int getNumAccounts() {
+        return accounts.size();
+    }
+
+    public void addAccount(BankAccount account ){
+        this.accounts.add(account);
     }
 
 
     public BankAccount getAccount(String accountNumber){
-        return ;
-    }
-
-    public int getNumAccounts(){
-        return ;
+       for (BankAccount i : accounts) {
+            if(i.getAccountNumber().equals(accountNumber)){
+                return i;
+            }
+        }
+        return null;
     }
 
     public String getFirstName(){
+
         return this.firstName;
     }
 
     public String getLastName(){
+
         return this.lastName;
     }
 
-    public void setLastName(String lastName){
-        this.lastName = lastName;
+    public void setLastName(String lName){
+
+        this.lastName = lName;
     }
 
     public void closeAccount(String accountNumber){
-
-    }
-
-    public boolean withdraw(double money){
-        boolean result = false;
-
-        if( balance >= money){
-            balance -= money;
-            result = true;
+        for(BankAccount i:accounts){
+            if(i.getAccountNumber().equals(accountNumber)){
+                this.accounts.remove(i);
+                return;
+            }
         }
-        return result;
+        System.out.println("Account not found");
     }
 
+    @Override
     public String toString() {
-
+        StringBuilder result = new StringBuilder();
+        result.append(firstName).append(' ').append(lastName).append(" accounts:\n");
+        for(BankAccount i:accounts){
+            result.append("\tBankAccount(accountNumber = '").append(i.getAccountNumber()).append(" ', balance = ").append(i.getBalance()).append(")\n");
+        }
+        return result.toString();
+    }
 }
-
-

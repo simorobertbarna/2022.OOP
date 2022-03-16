@@ -7,12 +7,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //readFilePrintItsLineNumbered("lab4_1_input.txt");
-        ArrayList<Person> personArrayList = readFromCSVFile("lab4_1_input.csv");
-        for(int i=0; i<personArrayList.size(); i++){
-            System.out.println(personArrayList.get(i));
+        readFilePrintItsLineNumbered("lab4_1_input.txt");
+        ArrayList<Person> persons = readFromCSVFile("lab_4_input.cvs");
+        for(Person person:persons){
+            System.out.println(person);
         }
+
     }
+        public static void readFilePrintItsLineNumbered( String fileName ){
+            try (Scanner scanner = new Scanner( new File("lab4_1_input.txt"))){
+             //read and process the lines
+                int i=1;
+                while(scanner.hasNextLine()){
+                    System.out.println(i + ".sor: " + scanner.nextLine());
+                    i++;
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
     public static ArrayList<Person> readFromCSVFile(String fileName) {
         ArrayList<Person> persons = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File(fileName))) {
@@ -36,22 +50,4 @@ public class Main {
     }
 
 
-
-    public static void readFilePrintItsLineNumbered( String fileName ){
-
-        /*File input = new File("input.txt");
-        Scanner scanner = new Scanner(input);
-        Scanner scanner = new Scanner(System.in);*/
-
-        try (Scanner scanner = new Scanner( new File(fileName))){
-            int counter=1;
-        //read and process the lines
-            while(scanner.hasNextLine()){
-                System.out.println(counter + " " + scanner.nextLine());
-                counter++;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }
