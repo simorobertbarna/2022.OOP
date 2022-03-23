@@ -1,15 +1,13 @@
 package oop.labor05.models;
 
 public class Course {
-
     private final String name;
-    private final String descrpition;
+    private final String description;
     private final int numHours;
 
-
-    public Course(String name, String descrpition, int numHours) {
+    public Course(String name, String description, int numHours) {
         this.name = name;
-        this.descrpition = descrpition;
+        this.description = description;
         this.numHours = numHours;
     }
 
@@ -17,8 +15,8 @@ public class Course {
         return name;
     }
 
-    public String getDescrpition() {
-        return descrpition;
+    public String getDescription() {
+        return description;
     }
 
     public int getNumHours() {
@@ -29,7 +27,7 @@ public class Course {
     public String toString() {
         return "Course{" +
                 "name='" + name + '\'' +
-                ", descrpition='" + descrpition + '\'' +
+                ", description='" + description + '\'' +
                 ", numHours=" + numHours +
                 '}';
     }
