@@ -7,7 +7,10 @@ public class Main {
         System.out.println(account1.getAccountNumber());
         System.out.println(account1.getBalance());
         account1.deposit(2000);
+
         account1.withdraw(1000);
+
+        account1.withdraw(1931);
 
         boolean result = account1.withdraw(2500);
         if(!result){
@@ -15,5 +18,7 @@ public class Main {
         }
         System.out.println(account1.getAccountNumber()+ ": "+ account1.getBalance());
 
+
     }
+
 }
