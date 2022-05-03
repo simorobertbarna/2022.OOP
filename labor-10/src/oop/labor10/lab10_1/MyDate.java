@@ -1,6 +1,6 @@
-package oop.labor02.date;
+package oop.labor10.lab10_1;
 
-public class MyDate {
+public class MyDate implements Comparable<MyDate>{
         private int day;
         private int month;
         private int year;
@@ -32,4 +32,15 @@ public class MyDate {
         return "Date: " + this.year + "," + this.month + "," + this.day;
     }
 
+    @Override
+    public int compareTo(MyDate that) {
+
+        if(this.year == that.year){
+            if(this.month == that.month){
+                return this.day - that.day;
+            }
+            return this.month - that.month;
+        }
+        return this.year - that.year;
+    }
 }

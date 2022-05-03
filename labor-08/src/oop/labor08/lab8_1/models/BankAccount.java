@@ -1,14 +1,14 @@
-package oop.labor06.lab6_1;
+package oop.labor08.lab8_1;
 
 public class BankAccount {
-    private final String accountNumber;
-    private double balance;
+    protected final String accountNumber;
+    protected double balance;
 
     public static final String PREFIX = "OTP";
     public static final int ACCOUNT_NUMBER_LENGTH =10;
     private static int numAccounts = 0;
 
-    public BankAccount() {
+    protected BankAccount() {
         ++numAccounts;
         this.accountNumber = createAccountNumber();
     }
@@ -43,5 +43,4 @@ public class BankAccount {
         return "balance=" + balance +
                 ", accountNumber=" + accountNumber + '\'';
     }
-
 }

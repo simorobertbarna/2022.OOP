@@ -1,8 +1,10 @@
-package oop.labor06.lab6_1;
+package oop.labor08.lab8_1.models.customer;
+
+import oop.labor08.lab8_1.BankAccount;
 
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer{
     private final String firstName;
     private String lastName;
     private final int id;
@@ -69,6 +71,10 @@ public class Customer {
             }
         }
         System.out.println("Account not found");
+    }
+
+    public ArrayList<BankAccount> getAccount() {
+        return accounts;
     }
 
     @Override

@@ -1,35 +1,36 @@
-package oop.labor06.lab6_1;
+package oop.labor06;
+
+import oop.labor06.lab6_1.Bank;
+import oop.labor06.lab6_1.BankAccount;
+import oop.labor06.lab6_1.Customer;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
 
 public class Main {
-    public static void main(String[] args) {
-
-        ArrayList <Customer> customers = new ArrayList<>();
-        /*ArrayList <BankAccount> accounts = new ArrayList<>();
-
-        for (int i = 0; i< 200; i++){
-            accounts.add(new BankAccount());
+    public static void main(String[] args){
+        ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+        ArrayList<Customer> customers = new ArrayList<>();
+        for(int i = 0; i < 200 ; ++i){
+            bankAccounts.add(new BankAccount());
         }
-        for(BankAccount account: accounts){
+        for(BankAccount account:bankAccounts){
             System.out.println(account);
-        }*/
-        customers.add(new Customer("Simon","Peter"));
-        customers.add(new Customer("Szoverfi","Daniel"));
-        customers.add(new Customer("Szentgyorgyi","Bernad"));
-        Random rand = new Random();
-        for (Customer customer: customers){
-            for(int i = 0; i < rand.nextInt(10); i++){
-                customer.addAccount(new BankAccount());
+        }
+
+        Bank bank = new Bank("OTP");
+        bank.addCustomer(new Customer("Nagy","Anita"));
+        bank.addCustomer(new Customer("Kis","Virag"));
+        bank.getCustomer(1).addAccount(new BankAccount());
+        bank.getCustomer(1).addAccount(new BankAccount());
+        bank.getCustomer(2).addAccount(new BankAccount());
+        bank.getCustomer(2).addAccount(new BankAccount());
+        System.out.println(bank.getCustomer(1));
+        for(int i = 1; i <= 2; ++i){
+            for(String accountnum:bank.getCustomer(i).getAccountNumbers()){
+                bank.getCustomer(i).getAccount(accountnum).deposit(3000);
             }
         }
-
-        for(Customer customer: customers){
-            System.out.println(customer);
-        }
-
+        System.out.println(bank.getCustomer(2));
+        bank.printCustomersToFile("bank_customers.csv");
     }
 }
-

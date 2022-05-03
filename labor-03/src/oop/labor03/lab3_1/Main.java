@@ -20,7 +20,5 @@ public class Main {
         customer2.setLastName(customer1.getLastName());
         System.out.println(customer2.toString());
 
-
-        
     }
 }
