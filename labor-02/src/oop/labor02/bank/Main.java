@@ -7,6 +7,9 @@ public class Main {
         System.out.println(account1.getAccountNumber());
         System.out.println(account1.getBalance());
         account1.deposit(2000);
+
+        account1.withdraw(1000);
+
         account1.withdraw(1931);
 
         boolean result = account1.withdraw(2500);
@@ -14,7 +17,8 @@ public class Main {
             System.out.println("You don't have sufficient founds for this withdraw");
         }
         System.out.println(account1.getAccountNumber()+ ": "+ account1.getBalance());
-        System.out.println(account1.getAccountNumber());
+
+
     }
 
 }
